@@ -1,0 +1,14 @@
+﻿@model Lab02.Models.Account
+
+<h1>Deposit Funds</h1>
+
+<p>Account Name: @Model.Name</p>
+<p>Current Balance: @Model.Deposit.ToString("C")</p>
+
+<form method="post" asp-action="Deposit" asp-route-accountId="@Model.Id">
+    <div class="form-group">
+        <label for="amount">Enter Amount to Deposit:</label>
+        <input type="number" id="amount" name="amount" class="form-control" step="1" required min="1" />
+    </div>
+    <button type="submit" class="btn btn-primary">Deposit</button>
+</form>
