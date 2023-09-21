@@ -1,0 +1,30 @@
+﻿@model List<Lab02.Models.Account>
+
+<h1>Your Accounts</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account Name</th>
+            <th>Balance</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.Name</td>
+                <td>@account.Deposit.ToString("C")</td>
+                <td>
+                    <form method="get" asp-action="Deposit" asp-route-accountId="@account.Id">
+                        <button type="submit" class="btn btn-primary">Deposit</button>
+                    </form>
+                    <form method="get" asp-action="Withdraw" asp-route-accountId="@account.Id">
+                        <button type="submit" class="btn btn-danger">Withdraw</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

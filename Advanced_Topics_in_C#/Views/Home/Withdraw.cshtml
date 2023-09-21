@@ -1,0 +1,14 @@
+﻿@model Lab02.Models.Account
+
+<h1>Withdraw Funds</h1>
+
+<p>Account Name: @Model.Name</p>
+<p>Current Balance: @Model.Deposit.ToString("C")</p>
+
+<form method="post" asp-action="Withdraw" asp-route-accountId="@Model.Id">
+    <div class="form-group">
+        <label for="amount">Enter Amount to Withdraw:</label>
+        <input type="number" id="amount" name="amount" class="form-control" step="1" required min="1" max="@Model.Deposit" />
+    </div>
+    <button type="submit" class="btn btn-danger">Withdraw</button>
+</form>
